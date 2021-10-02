@@ -42,3 +42,8 @@ no deployment coloca a image no container
  kubectl delete deploy goapp
  kubectl delete svc goapp
  kubectl create namespace goapp
+
+ kubectl get pods -n goapp
+ pq o argo ja esta usando a 8080
+ kubectl port-forward svc/goapp -n goapp 9090:8080
+ http://localhost:9090/
