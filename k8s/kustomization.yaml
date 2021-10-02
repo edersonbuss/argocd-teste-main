@@ -9,4 +9,4 @@ namespace: goapp
 images:
 - name: goapp
   newName: edersonbuss/argocd-teste
-  newTag: 66504496ec521d29b7c73bf6211a697e88d9e182
+  newTag: 7e03b60fe5a8f6f4072452e1b7ffe9a0b8405baa
