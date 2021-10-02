@@ -1,0 +1,44 @@
+S C:\dev\argocd-teste-main>
+kind create cluster --name=argocd
+kubectl get nodes
+go run main.go
+localhost:8080
+
+docker build -t edersonbuss/argocd-teste:latest .
+docker push edersonbuss/argocd-teste:latest
+docker run --rm -p 8080:8080 edersonbuss/argocd-teste:latest
+http://localhost:8080/
+
+no deployment coloca a image no container
+ image: edersonbuss/argocd-teste:latest
+
+ e vamos aplicar o deployment
+ kubectl apply -f k8s/deployment.yaml
+ kubectl get pods
+  kubectl apply -f k8s/service.yaml
+  kubectl get svc
+  kubectl port-forward svc/goapp 8080:8080
+  um recurso de kustomize
+
+   C:\dev\argocd-teste-main> git init
+   git add .
+   git commit-m "first commit"
+   git branch -M main
+   git push -u origin main
+
+   https://argoproj.github.io/argo-events/installation/
+
+      kubectl create namespace argocd
+
+      kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+   kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+   https://localhost:8080/login?return_url=https%3A%2F%2Flocalhost%3A8080%2Fapplications
+
+ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+ kubectl get deployment
+ kubectl delete deploy goapp
+ kubectl delete svc goapp
+ kubectl create namespace goapp
